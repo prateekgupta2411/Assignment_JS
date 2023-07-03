@@ -1,3 +1,14 @@
+const mathsMarks = 82;
+const englishMarks = 70;
+const computersMarks = 66;
+const scienceMarks = 84;
+// Create object to store subject marks and grades
+const subjects = {
+    Maths: mathsMarks,
+    English: englishMarks,
+    Computers: computersMarks,
+    Science: scienceMarks
+};
 function calculateGrade(marks) {
     if (marks >= 80) {
         return 'A';
@@ -9,31 +20,19 @@ function calculateGrade(marks) {
         return 'D';
     }
 }
-function findSubjectWithHighestMarks(subjects) {
-    var highestMarks = 0;
-    var highestSubject = '';
-    for (var subject in subjects) {
-        if (subjects[subject] > highestMarks) {
-        highestMarks = subjects[subject];
-        highestSubject = subject;
-        }
-    }
-    return highestSubject;
+for (const subject in subjects) {
+    const marks = subjects[subject];
+    const grade = calculateGrade(marks);
+    console.log(subject + ' : ' + marks + ' : ' + grade);
 }
-  // Test case
-var maths = 82;
-var english = 70;
-var computers = 66;
-var science = 84;
-var marks = {
-    Maths: maths,
-    English: english,
-    Computers: computers,
-    Science: science
-    };
-for (var subject in marks) {
-    var grade = calculateGrade(marks[subject]);
-    console.log(subject + ' : ' + marks[subject] + ' : ' + grade);
+let highestSubject = '';
+let highestMarks = 0;
+for (const subject in subjects) {
+    const marks = subjects[subject];
+    if (marks > highestMarks) {
+        highestMarks = marks;
+        highestSubject = subject;
     }
-var highestSubject = findSubjectWithHighestMarks(marks);
-console.log('Highest marks: ' + highestSubject);
+}
+console.log('Highest marks : ' + highestSubject);
+

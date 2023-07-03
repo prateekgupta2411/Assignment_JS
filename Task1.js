@@ -1,11 +1,9 @@
-function addXAfterCharacters(str, numX) {
-    var result = "";
-    for (var i = 0; i < str.length; i++) {
-        result += str[i];
-        for (var j = 0; j < numX; j++) {
-        result += 'x';
-        }
-    }
-    return result;
+let str = "HUMAN";
+let result = "";
+let numX = 'x';
+
+for (let i = 0; i < str.length; i++) {
+    result += str[i] + numX;
+    numX += 'x';
 }
-console.log(addXAfterCharacters("AbC",3));  
+console.log(result);
